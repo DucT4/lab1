@@ -39,15 +39,7 @@ public class listCategory implements IItem<Category> {
         return categoties.add(Item);
     }
 
-    @Override
-    public boolean updateItem(Category Item) {
-        int i = categoties.indexOf(getItem(Item.getId()));
-        if (i >= 0) {
-            categoties.set(i, Item);
-            return true;
-        }
-        return false;
-    }
+ 
 
     @Override
     public boolean deleteItem(Category Item) {
@@ -71,7 +63,7 @@ public class listCategory implements IItem<Category> {
     @Override
     public boolean lead() {
 
-        File categoryFile = new File("D:\\Code_Ky3\\lab211\\lab\\lab1\\lab01\\01_Category.txt");
+        File categoryFile = new File("01_Category.txt");
         try {
             List<String> allText = Files.readAllLines(categoryFile.toPath(), StandardCharsets.UTF_8);
             for (String line : allText) {
@@ -99,5 +91,10 @@ public class listCategory implements IItem<Category> {
     }
   public boolean checkId(String id) {
         return this.getItem(id.toUpperCase()) !=null;
+    }
+
+    @Override
+    public boolean updateItem(String id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

@@ -20,7 +20,7 @@ public interface IItem<E> {
     boolean addItem(E Item);
     //Cập nhật đối tượng 
 
-    boolean updateItem(E Item);
+    boolean updateItem(String id);
     //xóa đối tượng khỏi ds dựa trên đối tượng cụ thể
 
     boolean deleteItem(E Item);
