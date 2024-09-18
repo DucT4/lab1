@@ -17,7 +17,7 @@ import models.Product;
  */
 public class Main {
 
-    public static void addProduct() {
+    public static Product addProduct() {
         try {
             listBrand brandList = new listBrand();
             listCategory categoryList = new listCategory();
@@ -64,18 +64,18 @@ public class Main {
             //product creat
 
             Product pro = new Product(id, name, year, price, brandList.getItem(brand_id), categoryList.getItem(category_id));
-            //add pro 
-            System.out.println(productList.addItem(pro) ? "Added successfull" : " Failed to added");
-
+            return pro;
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
 
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
+        listProduct pro = new listProduct();
+        pro.lead();
         int choice;
         do {
             System.out.println("===== BIKE STORE MANAGEMENT SYSTEM =====");
@@ -90,7 +90,8 @@ public class Main {
             choice = sc.nextInt();
             switch (choice) {
                 case 1:
-                    addProduct();
+                    Product product = addProduct();
+                    System.out.println(pro.addItem(product) ? "Added successfull" : " Failed to added");    
                     break;
                 case 2:
 
@@ -98,7 +99,7 @@ public class Main {
                     System.out.print("Enter name:");
                     String searchName = null;
                     searchName = sc.nextLine();
-                    listProduct pro = new listProduct();
+
                     List<Product> resultByName = pro.searchByName(searchName);
 
                     if (resultByName.isEmpty()) {
@@ -113,17 +114,18 @@ public class Main {
                     break;
                 case 3:
                     //update
+                    sc.nextLine();
                     System.out.print("Enter id update:");
-                    String idUpdate = sc.nextLine();
-                    listProduct updatePro = new listProduct();
-                    updatePro.updateItem(idUpdate);
-
+                    String idUpdate = sc.nextLine();           
+                    pro.updateItem(idUpdate);
                     break;
                 case 4:
                     break;
                 case 5:
+                    System.out.println(pro.save() ? "Save data successfully" : "Failed to save!!!");
                     break;
                 case 6:
+                    pro.displayAll();
                     break;
                 case 7:
                     break;

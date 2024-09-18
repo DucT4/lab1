@@ -27,7 +27,7 @@ public class listCategory implements IItem<Category> {
     @Override
     public Category getItem(String id) {
         for (Category c : categoties) {
-            if (c.getId().equals(id)) {
+            if (c.getId().toUpperCase().equalsIgnoreCase(id.toUpperCase())) {
                 return c;
             }
         }

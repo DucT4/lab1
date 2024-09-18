@@ -78,7 +78,7 @@ public class Product  {
     
     @Override
     public String toString(){
-    String str = String.format("%s %s %lf %d %s %s ", this.id, this.name, this.listPrice,this.modelYear,this.brand.getName(),this.category.getName());
+    String str = String.format("%s %s %.2f %d %s %s ", this.id, this.name, this.listPrice,this.modelYear,this.brand.getName(),this.category.getName());
     return str;
         
 
