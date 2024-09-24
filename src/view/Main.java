@@ -112,7 +112,7 @@ public class Main {
             System.out.println("8. Sort product by price");
             System.out.print("Enter your choice: ");
             choice = sc.nextInt();
-            sc.nextLine();
+            sc.nextLine(); // Thêm dòng này
             switch (choice) {
 
                 case 1:
@@ -177,7 +177,6 @@ public class Main {
                     break;
             } 
             System.out.print("Do you want to continue? (y/n): ");
-
             String continueChoice = sc.nextLine();
 
             if (!continueChoice.equalsIgnoreCase("y")) {
@@ -185,6 +184,6 @@ public class Main {
                 break;
             }
 
-        } while (continuePro);
+        } while (true);
     }
 }
